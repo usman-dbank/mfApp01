@@ -1,0 +1,21 @@
+name: Push on main
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - '*.md'
+      - '.gitignore'
+      - 'cve-suppressed.xml'
+      - '.github/**'
+      - 'renovate.json'
+      - '.npmrc'
+      - '.husky/**'
+  workflow_dispatch:
+
+jobs:
+  build:
+    if: github.repository_owner == 'din-global'
+    uses: din-global/reusable-workflows/.github/workflows/tools-library-push.yml@main
+    secrets: inherit
+    with:
+      build: true

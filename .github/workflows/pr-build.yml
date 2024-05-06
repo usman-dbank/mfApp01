@@ -1,0 +1,19 @@
+name: pr-build
+on:
+  pull_request:
+    branches: [ main ]
+    paths-ignore:
+      - '*.md'
+      - '.gitignore'
+      - 'cve-suppressed.xml'
+      - '.github/**'
+      - 'renovate.json'
+      - '.npmrc'
+      - '.husky/**'
+  workflow_dispatch:
+
+jobs:
+  pr-build:
+    if: github.repository_owner == 'din-global'
+    uses: din-global/reusable-workflows/.github/workflows/tools-fe-pr-build.yml@main
+    secrets: inherit

@@ -1,0 +1,16 @@
+{
+  "short_name": "MicroFE Template",
+  "name": "Microfrontend Template",
+  "icons": [
+    {
+      "src": "favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    }
+  ],
+  "start_url": ".",
+  "micro_fe_path_prefix": "microfe-template",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}

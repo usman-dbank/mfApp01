@@ -1,0 +1,54 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:base", "npm:unpublishSafe"],
+  "timezone": "Asia/Karachi",
+  "schedule": ["every weekend"],
+  "baseBranches": ["main"],
+  "vulnerabilityAlerts": {
+    "commitMessagePrefix": "chore(renovate): Security update",
+    "labels": ["security"]
+  },
+  "ignorePaths": ["**/node_modules/**"],
+  "prHourlyLimit": 10,
+  "labels": ["dependencies"],
+  "reviewersFromCodeOwners": true,
+  "separateMajorMinor": true,
+  "packageRules": [
+    {
+      "description": "Group major updates together",
+      "matchPackagePatterns": ["*"],
+      "matchUpdateTypes": ["major"],
+      "addLabels": ["major", "version-update"],
+      "commitMessagePrefix": "fix(renovate):",
+      "groupName": "major"
+    },
+    {
+      "description": "Group minor and patch updates together",
+      "matchPackagePatterns": ["*"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "addLabels": ["minor"],
+      "commitMessagePrefix": "fix(renovate):",
+      "groupName": "minor"
+    },
+    {
+      "description": "Group din-global updates",
+      "matchPackagePatterns": ["^@din-global"],
+      "addLabels": ["din-global"],
+      "commitMessagePrefix": "fix(renovate):",
+      "groupName": "din-global",
+      "automerge": false
+    },
+    {
+      "description": "Minor patch Github Actions updates",
+      "matchManagers": ["github-actions"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "automerge": false
+    },
+    {
+      "description": "Major Github Actions updates",
+      "matchManagers": "github-actions",
+      "separateMultipleMajor": true,
+      "groupName": "github-actions"
+    }
+  ]
+}

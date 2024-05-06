@@ -1,0 +1,23 @@
+name: Retag Image
+on:
+  workflow_dispatch:
+    inputs:
+      tags:
+        description: 'Enter new tags (separated by spaces) to be added'
+        required: false
+        type: string
+        default: demo
+      target:
+        description: 'Enter target tag'
+        required: false
+        type: string
+        default: latest
+
+jobs:
+  image-retag:
+    uses: din-global/reusable-workflows/.github/workflows/repo-specific-retag.yml@main
+    with:
+      tags: ${{ inputs.tags }}
+      target: ${{ inputs.target }}
+      repository: ${{ github.event.repository.full_name }}
+    secrets: inherit

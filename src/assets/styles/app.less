@@ -1,0 +1,85 @@
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src:
+    local('Inter-Regular'),
+    url('../fonts/Inter-Regular.woff2') format('woff2');
+}
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Inter', serif;
+  section {
+    overflow: auto;
+  }
+}
+
+a:active,
+a:hover {
+  text-decoration: underline;
+}
+
+.page-content {
+  min-height: 100%;
+}
+
+.App {
+  height: 100%;
+}
+
+.ant-layout-has-sider {
+  height: 100%;
+}
+
+.form-button-container {
+  display: flex;
+  float: right;
+  gap: 12px;
+}
+
+::-webkit-scrollbar {
+  width: 0.375rem; /* decreased width */
+  height: 0.375rem;
+}
+
+/* Set the background color of the scroll bar track */
+::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 5px;
+}
+.ant-table {
+  ::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background: var(--secondary-color);
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+  }
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background: var(--secondary-color);
+  background: linear-gradient(to top, var(--primary-color), var(--secondary-color));
+}
+
+.ant-page-header {
+  padding: 0px;
+  .table-action {
+    gap: 10px;
+  }
+}
+
+.page-not-found {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  place-content: center;
+  background-color: var(--secondary-color);
+}
+
+.ant-page-header-heading {
+  padding-bottom: 10px;
+}
